@@ -117,7 +117,7 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
-    //Close all action menus
+    //Close all action menus 
     public void CloseActionMenu()
     {
         for (int i = 0; i < menu.Count; i++)
@@ -128,7 +128,7 @@ public class PlayerStateMachine : MonoBehaviour
             }
         }
     }
-
+    
     //Choose Action once Act is selected ( this depends on what instrument the player is using)
     public void ChooseAction(Button button)
     {
