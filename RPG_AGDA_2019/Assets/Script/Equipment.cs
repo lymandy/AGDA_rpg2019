@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Equipment : MonoBehaviour
 {
-    public PlayerStateMachine player;
+    public PlayerStateMachine playermachine;
     public Text E1text;
     public Text E2text;
     public Text E3text;
-	// Use this for initialization
+	//udepending on what weapon the player is using
 	public void SetEquip () {
-        switch (player.player.weapontype)
+        switch (playermachine.player.weapontype)
         {
             case Player.WeaponType.UNARMED:
                 E1text.text = "Percussion";
@@ -21,7 +21,7 @@ public class Equipment : MonoBehaviour
                 break;
             case Player.WeaponType.STRING:
                 E1text.text = "Percussion";
-                E2text.text = "Unarmored";
+                E2text.text = "Unarmed";
                 E3text.text = "Wind";
                 break;
             case Player.WeaponType.WIND:
@@ -30,7 +30,7 @@ public class Equipment : MonoBehaviour
                 E1text.text = "String";
                 break;
             case Player.WeaponType.PERCUSSION:
-                E1text.text = "Unarmored";
+                E1text.text = "Unarmed";
                 E2text.text = "String";
                 E3text.text = "Wind";
                 break;
@@ -39,7 +39,7 @@ public class Equipment : MonoBehaviour
 
     public void ChangeEquip(Button button)
     {
-        Debug.Log("this button is " + button.name);
+        SetEquip();
         switch (button.name)
         {
             case "Equipment 1":
@@ -60,20 +60,20 @@ public class Equipment : MonoBehaviour
         Debug.Log("the name is" + text.text);
         if (text.text == "Percussion")
         {
-            player.player.weapontype = Player.WeaponType.PERCUSSION;
+            playermachine.player.weapontype = Player.WeaponType.PERCUSSION;
         }
         if (text.text == "Wind")
         {
-            player.player.weapontype = Player.WeaponType.WIND;
+            playermachine.player.weapontype = Player.WeaponType.WIND;
         }
         if (text.text == "String")
         {
-            player.player.weapontype = Player.WeaponType.STRING;
+            playermachine.player.weapontype = Player.WeaponType.STRING;
  
         }
         if (text.text == "Unarmed")
         {
-            player.player.weapontype = Player.WeaponType.UNARMED;
+            playermachine.player.weapontype = Player.WeaponType.UNARMED;
         }
     }
 

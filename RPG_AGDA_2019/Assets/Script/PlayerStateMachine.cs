@@ -13,7 +13,8 @@ public class PlayerStateMachine : MonoBehaviour
     public Text HP;
     public Text MP;
     public bool selected;
- 
+    public List<GameObject> menu;
+
 
     public enum TurnState
     {
@@ -49,20 +50,20 @@ public class PlayerStateMachine : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // Update is called and checking the state of the player 
     void Update()
     {
         switch (currentstate)
         {
             case (TurnState.WAITING):
-                if (enemy.currentstate.Equals( EnemyStateMachine.TurnState.WAITING))
+                if (enemy.currentstate.Equals(EnemyStateMachine.TurnState.WAITING))
                 {
                     currentstate = TurnState.SELECTING;
                 }
                 break;
 
             case (TurnState.SELECTING):
-               
+
                 if (selected)
                 {
                     anim.Play("WhistleAnim");
@@ -93,58 +94,144 @@ public class PlayerStateMachine : MonoBehaviour
 
         }
     }
+    //Depending on weapon type, different action menu will appear
+    public void ShowAction()
+    {
+        
+        switch (player.weapontype)
+        {
+            case Player.WeaponType.WIND:
+                menu[1].SetActive(true);
+                break;
+            case Player.WeaponType.PERCUSSION:
+                menu[3].SetActive(true);
+                break;
+            case Player.WeaponType.STRING:
+                menu[2].SetActive(true);
+                break;
+            case Player.WeaponType.UNARMED:
+                menu[0].SetActive(true);
+                break;
+        }
+    }
 
+    //Close all action menus
+    public void CloseActionMenu()
+    {
+        for (int i = 0; i < menu.Count; i++)
+        {
+            if (menu[i].activeInHierarchy == true)
+            {
+                menu[i].SetActive(false);
+            }
+        }
+    }
 
-   public void ChooseAction(Button button)
+    //Choose Action once Act is selected ( this depends on what instrument the player is using)
+    public void ChooseAction(Button button)
     {
         Debug.Log("You have clicked the" + button.name);
-        switch (player.weapontype) {
+        switch (player.weapontype)
+        {
             case Player.WeaponType.UNARMED:
-        // attack with a light attack 
-        if (button.name == "Whistle")
-        {
-            Attackpower = Random.Range(1, 2);
-            selected = true;
+                // attack with a light attack 
+                if (button.name == "Whistle")
+                {
+                    Attackpower = Random.Range(1, 2);
+                    selected = true;
+                }
+                // attack with a heavy attack
+                else if (button.name == "Sing")
+                {
+                    if (player.CurrMusicPoints - 3.0 >= 0.0)
+                    {
+                        player.CurrMusicPoints = player.CurrMusicPoints - 3.0f;
+                        Attackpower = Random.Range(2, 4);
+                        selected = true;
+                    }
+                    else
+                    {
+                        selected = false;
+                    }
+                }
+              
+                break;
+            case Player.WeaponType.PERCUSSION:
+                // attack with a light attack 
+                if (button.name == "Play")
+                {
+                    Attackpower = Random.Range(1, 2);
+                    selected = true;
+                }
+                // attack with a heavy attack
+                else if (button.name == "2")
+                {
+                    selected = true;
+                }
+                else if (button.name == "3")
+                {
+
+                    selected = true;
+                }            
+                break;
+            case Player.WeaponType.STRING:
+                // attack with a light attack 
+                if (button.name == "Play")
+                {
+                    Attackpower = Random.Range(1, 2);
+                    selected = true;
+                }
+                // attack with a heavy attack
+                else if (button.name == "2")
+                {
+                    selected = true;
+                }
+                else if (button.name == "3")
+                {
+                    selected = true;
+                }
+            
+                break;
+            case Player.WeaponType.WIND:
+                // attack with a light attack 
+                if (button.name == "Play")
+                {
+                    Attackpower = Random.Range(1, 2);
+                    selected = true;
+                }
+                // attack with a heavy attack
+                else if (button.name == "2")
+                {
+                    selected = true;
+                }
+                else if (button.name == "3")
+                {
+                    selected = true;
+                }
+         
+                break;
         }
-        // attack with a heavy attack
-        else if (button.name == "Sing")
+        if (selected)
         {
-            if (player.CurrMusicPoints - 3.0 >= 0.0)
-            {
-                player.CurrMusicPoints = player.CurrMusicPoints - 3.0f;
-                Attackpower = Random.Range(2, 4);
-                selected = true;
-            }
-            else
-            {
-                selected = false;
-            }
+            CloseActionMenu();
         }
-        //defend yourself
-        else if (button.name == "DEF")
+    }
+
+//defend from attack
+    public void Action_DEF(Button button)
+    {
+        if (button.name == "DEF")
         {
             Attackpower = 0;
             selected = true;
-
-           
-                }
+        }
         else
         {
             selected = false;
         }
-                break;
-            case Player.WeaponType.PERCUSSION:
-                
-                break;
-            case Player.WeaponType.STRING:
-                break;
-            case Player.WeaponType.WIND:
-                break;
-    }
     }
 }
-       
-    
-    
+
+
 
 
