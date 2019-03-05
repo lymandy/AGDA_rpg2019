@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStateMachine : MonoBehaviour
 {
@@ -88,7 +89,8 @@ public class PlayerStateMachine : MonoBehaviour
 
                 break;
             case (TurnState.DEAD):
-
+                //go to game over scene
+                SceneManager.LoadScene(4);
                 break;
 
 
@@ -134,86 +136,108 @@ public class PlayerStateMachine : MonoBehaviour
         switch (player.weapontype)
         {
             case Player.WeaponType.UNARMED:
-                // attack with a light attack 
-                if (button.name == "Whistle")
-                {
-                    Attackpower = Random.Range(1, 2);
-                    selected = true;
-                }
-                // attack with a heavy attack
-                else if (button.name == "Sing")
-                {
-                    if (player.CurrMusicPoints - 3.0 >= 0.0)
-                    {
-                        player.CurrMusicPoints = player.CurrMusicPoints - 3.0f;
-                        Attackpower = Random.Range(2, 4);
-                        selected = true;
-                    }
-                    else
-                    {
-                        selected = false;
-                    }
-                }
-              
+                UnarmedAction(button);
                 break;
             case Player.WeaponType.PERCUSSION:
-                // attack with a light attack 
-                if (button.name == "Play")
-                {
-                    Attackpower = Random.Range(1, 2);
-                    selected = true;
-                }
-                // attack with a heavy attack
-                else if (button.name == "2")
-                {
-                    selected = true;
-                }
-                else if (button.name == "3")
-                {
-
-                    selected = true;
-                }            
+                PercussionAction(button);
                 break;
             case Player.WeaponType.STRING:
-                // attack with a light attack 
-                if (button.name == "Play")
-                {
-                    Attackpower = Random.Range(1, 2);
-                    selected = true;
-                }
-                // attack with a heavy attack
-                else if (button.name == "2")
-                {
-                    selected = true;
-                }
-                else if (button.name == "3")
-                {
-                    selected = true;
-                }
-            
+                StringAction(button);
                 break;
             case Player.WeaponType.WIND:
-                // attack with a light attack 
-                if (button.name == "Play")
-                {
-                    Attackpower = Random.Range(1, 2);
-                    selected = true;
-                }
-                // attack with a heavy attack
-                else if (button.name == "2")
-                {
-                    selected = true;
-                }
-                else if (button.name == "3")
-                {
-                    selected = true;
-                }
-         
+                WindAction(button);
                 break;
         }
         if (selected)
         {
             CloseActionMenu();
+        }
+    }
+
+    //Action for Unarmed 
+    void UnarmedAction(Button button)
+    {
+        // attack with a light attack 
+        if (button.name == "Whistle")
+        {
+            Attackpower = Random.Range(1, 2);
+            selected = true;
+        }
+        // attack with a heavy attack
+        else if (button.name == "Sing")
+        {
+            if (player.CurrMusicPoints - 3.0 >= 0.0)
+            {
+                player.CurrMusicPoints = player.CurrMusicPoints - 3.0f;
+                Attackpower = Random.Range(2, 4);
+                selected = true;
+            }
+            else
+            {
+                selected = false;
+            }
+        }
+    }
+
+    //Action for Wind 
+    void WindAction(Button button)
+    {
+        // attack with a light attack 
+        if (button.name == "Play")
+        {
+            Attackpower = Random.Range(1, 2);
+            selected = true;
+        }
+        // attack with a heavy attack
+        else if (button.name == "2")
+        {
+            selected = true;
+        }
+        else if (button.name == "3")
+        {
+            selected = true;
+        }
+
+    }
+
+    //Action for String
+    void StringAction(Button button)
+    {
+        // attack with a light attack 
+        if (button.name == "Play")
+        {
+            Attackpower = Random.Range(1, 2);
+            selected = true;
+        }
+        // attack with a heavy attack
+        else if (button.name == "2")
+        {
+            selected = true;
+        }
+        else if (button.name == "3")
+        {
+            selected = true;
+        }
+    }
+
+    //Action for Percussions
+    void PercussionAction(Button button)
+    {
+        // attack with a light attack 
+        if (button.name == "Play")
+        {
+            Attackpower = Random.Range(1, 2);
+            selected = true;
+        }
+        // attack with a heavy attack
+        else if (button.name == "2")
+        {
+            selected = true;
+        }
+        else if (button.name == "3")
+        {
+
+            selected = true;
         }
     }
 

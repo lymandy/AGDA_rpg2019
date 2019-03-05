@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: 964bb253cfa73b24fac4646d613d5e6b
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 8329a9ac169b6b040b76b2c303e8b2b2
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 3ab68d21daaf5c04c9dab719aae97fef
   m_configObjects: {}
