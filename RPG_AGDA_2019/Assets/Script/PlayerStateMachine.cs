@@ -24,6 +24,7 @@ public class PlayerStateMachine : MonoBehaviour
     };
 
     public TurnState currentstate;
+    private Animator anim;
 
     // Use this for initialization
     void Start()
@@ -44,6 +45,7 @@ public class PlayerStateMachine : MonoBehaviour
         selected = false;
         //hello world
         currentstate = TurnState.SELECTING;
+        anim = GetComponent<Animator>();
 
     }
 
@@ -63,9 +65,9 @@ public class PlayerStateMachine : MonoBehaviour
                
                 if (selected)
                 {
+                    anim.Play("WhistleAnim");
                     currentstate = TurnState.ACTION;
                     selected = false;
-                   
                 }
                 break;
             case (TurnState.ACTION):
