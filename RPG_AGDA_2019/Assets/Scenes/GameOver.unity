@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 889693337}
   - component: {fileID: 889693336}
   - component: {fileID: 889693335}
-  - component: {fileID: 889693338}
+  - component: {fileID: 889693339}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -420,7 +420,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &889693338
+--- !u!114 &889693339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 889693334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c9a103115564440ab47e7fb73fbcf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0900a69d2076d5142b018c6788397779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1058547940
@@ -593,8 +593,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889693338}
-        m_MethodName: Retry
+      - m_Target: {fileID: 889693339}
+        m_MethodName: FirstLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889693338}
+      - m_Target: {fileID: 889693339}
         m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889693338}
+      - m_Target: {fileID: 889693339}
         m_MethodName: BackToLevelSelect
         m_Mode: 1
         m_Arguments:
