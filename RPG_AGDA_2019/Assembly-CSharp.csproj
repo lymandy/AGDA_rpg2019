@@ -59,6 +59,7 @@
     <Compile Include="Assets\Script\EnemyStateMachine.cs" />
     <Compile Include="Assets\Script\Equipment.cs" />
     <Compile Include="Assets\Script\GameOver.cs" />
+    <Compile Include="Assets\Script\LevelSelect.cs" />
     <Compile Include="Assets\Script\MainMenu.cs" />
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\PlayerStateMachine.cs" />
