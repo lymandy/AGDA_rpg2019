@@ -1,7 +1,36 @@
 fileFormatVersion: 2
 guid: 8801ebcac786fb64282c67e6f4b79d17
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: robo actions_0
+    21300002: robo actions_1
+    21300004: robo actions_2
+    21300006: robo actions_3
+    21300008: robo actions_4
+    21300010: robo actions_5
+    21300012: robo actions_6
+    21300014: robo actions_7
+    21300016: robo actions_8
+    21300018: robo actions_9
+    21300020: robo actions_10
+    21300022: robo actions_11
+    21300024: robo actions_12
+    21300026: robo actions_13
+    21300028: robo actions_14
+    21300030: robo actions_15
+    21300032: robo actions_16
+    21300034: robo actions_17
+    21300036: robo actions_18
+    21300038: robo actions_19
+    21300040: robo actions_20
+    21300042: robo actions_21
+    21300044: robo actions_22
+    21300046: robo actions_23
+    21300048: robo actions_24
+    21300050: robo actions_25
+    21300052: robo actions_26
+    21300054: robo actions_27
+    21300056: robo actions_28
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +69,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +98,380 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: robo actions_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 978.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15767ffd20c75db478cf4321ad282c53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_1
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 978.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4216e558b41af9443a0aef14249ebfe0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_2
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 978.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c17125e6bf2b6488a0c8fe2bf37d2c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_3
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 978.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b04126251115cce42ad241c3f5d3c28c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_4
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 978.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35da67b068e0d944e98d1aaec0657369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_5
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 978.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb621d4b12227104b8beb32c13e59f3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 783.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c7e408ff3cf6c4995c8933633e61ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_7
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 783.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c619103f104a7846a7e50716a2f1340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_8
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 783.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128dbf97c19faa342ac37d1bc9141b0e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_9
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 783.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e687dd125dc96c04e91914a5e6e4857b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_10
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 783.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fad41e70ff667442a5ccea48e834c8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_11
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 783.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b93df6cbbe3374bb1ee6b1ade956ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 588.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfcc4c91ab6dbe740a25a3f7bd17cec5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_13
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 588.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4afe319253515c45bf68e4efa5a3d19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_14
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 588.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db11a9a782f1eca42aa229317dac9bf8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_15
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 588.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd3340e196ddee4297efce155fcb46a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_16
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 588.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c89c5473ccb7f48bdfff3ed6707d3f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robo actions_17
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 588.3333
+        width: 195.66667
+        height: 195.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a6f10026752d84980b31e7e83045f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

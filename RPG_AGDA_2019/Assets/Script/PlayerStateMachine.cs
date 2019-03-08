@@ -67,7 +67,6 @@ public class PlayerStateMachine : MonoBehaviour
 
                 if (selected)
                 {
-                    anim.Play("WhistleAnim");
                     currentstate = TurnState.ACTION;
                     selected = false;
                 }
@@ -248,6 +247,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Attackpower = 0;
             selected = true;
+            anim.Play("PlayerDef 0");
         }
         else
         {
