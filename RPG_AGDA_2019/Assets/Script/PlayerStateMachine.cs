@@ -25,8 +25,17 @@ public class PlayerStateMachine : MonoBehaviour
         DEAD,
     };
 
+    public enum AnimState
+    {
+    	HEAL,
+    	DEF,
+    	WHISTLE,
+    	SING,
+    }
+
     public TurnState currentstate;
-    private Animator anim;
+    public bool isBusy;
+    public Animator anim;
 
     // Use this for initialization
     void Start()
@@ -67,9 +76,13 @@ public class PlayerStateMachine : MonoBehaviour
 
                 if (selected)
                 {
-                    currentstate = TurnState.ACTION;
-                    selected = false;
-                }
+                	if (!anim.GetBool("busy")) {
+                		currentstate = TurnState.ACTION;
+                		selected = false;
+                	} else {
+                		selected = false;
+                	}
+            	}
                 break;
             case (TurnState.ACTION):
                 //update the stats of the enemy and the player 
@@ -95,6 +108,11 @@ public class PlayerStateMachine : MonoBehaviour
 
         }
     }
+
+    public void setBusy(bool b) {
+    	isBusy = b;
+    }
+
     //Depending on weapon type, different action menu will appear
     public void ShowAction()
     {
@@ -153,6 +171,25 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
+    //Play animation
+    void handleAnim(AnimState s) 
+    {
+    	if (!anim.GetBool("busy")) {
+    		switch(s)
+    		{
+    			case (AnimState.DEF):
+    				anim.Play("PlayerDef 0");
+    				break;
+    			case (AnimState.WHISTLE):
+    				anim.Play("PlayerWhistle");
+    				break;
+    			case (AnimState.SING):
+    				anim.Play("PlayerSing");
+    				break;
+    		}
+    	}
+    }
+
     //Action for Unarmed 
     void UnarmedAction(Button button)
     {
@@ -161,6 +198,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Attackpower = Random.Range(1, 2);
             selected = true;
+            handleAnim(AnimState.WHISTLE);
         }
         // attack with a heavy attack
         else if (button.name == "Sing")
@@ -170,6 +208,7 @@ public class PlayerStateMachine : MonoBehaviour
                 player.CurrMusicPoints = player.CurrMusicPoints - 3.0f;
                 Attackpower = Random.Range(2, 4);
                 selected = true;
+                handleAnim(AnimState.SING);
             }
             else
             {
@@ -247,7 +286,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Attackpower = 0;
             selected = true;
-            anim.Play("PlayerDef 0");
+            handleAnim(AnimState.DEF);
         }
         else
         {

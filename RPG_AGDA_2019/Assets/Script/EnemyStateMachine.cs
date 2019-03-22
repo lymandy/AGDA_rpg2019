@@ -11,7 +11,7 @@ public class EnemyStateMachine : MonoBehaviour
     public float Attackpower;
     public Text Name;
     public Text HP;
-
+    private Animator anim;
 
     public enum TurnState
     {
@@ -29,6 +29,12 @@ public class EnemyStateMachine : MonoBehaviour
         DEFENSE,
     }
 
+    public enum AnimState
+    {
+        HEAVY,
+        LIGHT,
+    }
+
     public TurnState currentstate;
     // Use this for initialization
     void Start()
@@ -37,6 +43,7 @@ public class EnemyStateMachine : MonoBehaviour
         Damage = 0.0f;
         Attackpower = 0.0f;
         SetEnemyType();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,9 +59,12 @@ public class EnemyStateMachine : MonoBehaviour
                 break;
 
             case (TurnState.SELECTING):
-                ChooseAction();
-
-                currentstate = TurnState.ACTION;
+                if (player.anim.GetBool("busy")) {
+                    currentstate = TurnState.SELECTING;
+                } else {
+                    ChooseAction();
+                    currentstate = TurnState.ACTION;
+                }
                 break;
             case (TurnState.ACTION):
                 player.player.CurrHealth = player.player.CurrHealth - Attackpower;
@@ -75,6 +85,21 @@ public class EnemyStateMachine : MonoBehaviour
                 break;
 
 
+        }
+    }
+
+    void handleAnim(AnimState s) 
+    {
+        if (!anim.GetBool("busy")) {
+            switch(s)
+            {
+                case (AnimState.LIGHT):
+                    anim.Play("WrathPunch");
+                    break;
+                case (AnimState.HEAVY):
+                    anim.Play("WrathHeavy");
+                    break;
+            }
         }
     }
 
@@ -122,6 +147,7 @@ public class EnemyStateMachine : MonoBehaviour
             case (0):
                 //Light Attack 
                 Attackpower = Random.Range(1, 2);
+                handleAnim(AnimState.LIGHT);
                 break;
             case (1):
                 //Heavy Attack 
@@ -129,6 +155,7 @@ public class EnemyStateMachine : MonoBehaviour
                 {
                     enemy._CurrMusicPoints = enemy._CurrMusicPoints - 3.0f;
                     Attackpower = Random.Range(2, 4);
+                    handleAnim(AnimState.HEAVY);
                 }
                 else
                 {
