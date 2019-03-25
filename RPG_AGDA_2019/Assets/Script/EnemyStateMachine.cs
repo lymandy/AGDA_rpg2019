@@ -57,6 +57,7 @@ public class EnemyStateMachine : MonoBehaviour
                 currentstate = TurnState.ACTION;
                 break;
             case (TurnState.ACTION):
+                
                 player.player.CurrHealth = player.player.CurrHealth - Attackpower;
                 if (player.player.CurrHealth < 0)
                 {
@@ -69,6 +70,7 @@ public class EnemyStateMachine : MonoBehaviour
                     player.currentstate = PlayerStateMachine.TurnState.DEAD;
                 }
 
+   
                 break;
             case (TurnState.DEAD):
 
@@ -127,7 +129,7 @@ public class EnemyStateMachine : MonoBehaviour
                 //Heavy Attack 
                 if (enemy._CurrMusicPoints - 3.0f >= 0)
                 {
-                    enemy._CurrMusicPoints = enemy._CurrMusicPoints - 3.0f;
+                  //  enemy._CurrMusicPoints = enemy._CurrMusicPoints - 3.0f;
                     Attackpower = Random.Range(2, 4);
                 }
                 else

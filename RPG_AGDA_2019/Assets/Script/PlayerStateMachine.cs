@@ -10,6 +10,7 @@ public class PlayerStateMachine : MonoBehaviour
     public EnemyStateMachine enemy;
     public float Damaged;
     public float Attackpower;
+    public float MPpool;
     public Text Name;
     public Text HP;
     public Text MP;
@@ -74,19 +75,40 @@ public class PlayerStateMachine : MonoBehaviour
                 break;
             case (TurnState.ACTION):
                 //update the stats of the enemy and the player 
+                //update player health
+                player.CurrHealth -= Damaged;
+                if (player.CurrHealth - Damaged >= player.BaseHealth)
+                {
+                    player.CurrHealth = player.BaseHealth;
+                }
+
+                //update enemy health
                 enemy.enemy._CurrHealth -= Attackpower;
-                MP.text = MP.text = "MP: " + player.CurrMusicPoints;
+               
                 if (enemy.enemy._CurrHealth < 0)
                 {
                     enemy.enemy._CurrHealth = 0;
                 }
-                enemy.HP.text = "HP: " + enemy.enemy._CurrHealth;
-                currentstate = TurnState.WAITING;
+                
+               
                 if (enemy.enemy._CurrHealth <= 0)
                 {
                     enemy.currentstate = EnemyStateMachine.TurnState.DEAD;
                 }
-
+                //update enemy and player mp
+                enemy.enemy._CurrMusicPoints -= MPpool;
+                player.CurrMusicPoints += MPpool;
+                if (player.CurrMusicPoints + MPpool > player.BaseMusicPoints)
+                {
+                    player.CurrMusicPoints = player.BaseMusicPoints;
+                }
+                enemy.HP.text = "HP: " + enemy.enemy._CurrHealth;
+                MP.text = MP.text = "MP: " + player.CurrMusicPoints;
+                enemy.HP.text = "HP: " + enemy.enemy._CurrHealth;
+                Attackpower = 0;
+                Damaged = 0;
+                MPpool = 0;
+                currentstate = TurnState.WAITING;
                 break;
             case (TurnState.DEAD):
                 //go to game over scene
@@ -185,17 +207,38 @@ public class PlayerStateMachine : MonoBehaviour
         // attack with a light attack 
         if (button.name == "Play")
         {
-            Attackpower = Random.Range(1, 2);
+            Attackpower = Random.Range(1, 1);
             selected = true;
         }
         // attack with a heavy attack
-        else if (button.name == "2")
+        else if (button.name == "Tune")
         {
-            selected = true;
+            if (player.CurrMusicPoints - 2.0 >= 0.0)
+            {
+                player.CurrMusicPoints = player.CurrMusicPoints - 2.0f;
+                Damaged = -Random.Range(2, 3);
+
+                selected = true;
+            }
         }
-        else if (button.name == "3")
+        else if (button.name == "Charm")
         {
-            selected = true;
+            
+            MPpool = Random.Range(2, 4);
+            float enemyMP = enemy.enemy._CurrMusicPoints - MPpool;
+            if (enemyMP >= 0)
+            {
+                selected = true;
+            }else if (enemy.enemy._CurrMusicPoints > 0 && MPpool >= -3)
+            {
+                MPpool = enemy.enemy._CurrMusicPoints;
+                selected = true;
+            }else{
+                MPpool = 0;
+                selected = false;
+            }
+            
+            
         }
 
     }
@@ -206,15 +249,23 @@ public class PlayerStateMachine : MonoBehaviour
         // attack with a light attack 
         if (button.name == "Play")
         {
-            Attackpower = Random.Range(1, 2);
-            selected = true;
+            if (player.CurrMusicPoints - 3.0 >= 0.0)
+            {
+                player.CurrMusicPoints = player.CurrMusicPoints - .0f;
+                Attackpower = Random.Range(2, 4);
+                selected = true;
+            }
+            else
+            {
+                selected = false;
+            }
         }
         // attack with a heavy attack
-        else if (button.name == "2")
+        else if (button.name == "Tune")
         {
             selected = true;
         }
-        else if (button.name == "3")
+        else if (button.name == "Critize")
         {
             selected = true;
         }
@@ -226,8 +277,16 @@ public class PlayerStateMachine : MonoBehaviour
         // attack with a light attack 
         if (button.name == "Play")
         {
-            Attackpower = Random.Range(1, 2);
-            selected = true;
+            if (player.CurrMusicPoints - 5.0 >= 0.0)
+            {
+                player.CurrMusicPoints = player.CurrMusicPoints - 5.0f;
+                Attackpower = Random.Range(5, 8);
+                selected = true;
+            }
+            else
+            {
+                selected = false;
+            }
         }
         // attack with a heavy attack
         else if (button.name == "2")
