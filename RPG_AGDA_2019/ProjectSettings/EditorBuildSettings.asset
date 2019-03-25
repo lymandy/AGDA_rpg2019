@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/OpeningScreen.unity
-    guid: 19da56415c792134d9a42823cf8aa1f7
+    path: Assets/Scenes/MainScene.unity
+    guid: ba870bdaccf06494eacf01141e609221
   - enabled: 1
-    path: Assets/Scenes/OptionsMenu.unity
-    guid: 91472eb6166b17a42bebd564fcea8299
+    path: Assets/Scenes/OptionScene.unity
+    guid: b1ac80e87e78e314cb4e423b1bb05ee7
   - enabled: 1
     path: Assets/Scenes/PlayGame.unity
     guid: 4226c69d91776154399fd767be72ebef
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: 3ab68d21daaf5c04c9dab719aae97fef
+  - enabled: 1
+    path: Assets/Scenes/OpeningCutScene.unity
+    guid: e7ec72991faecde4da65a2166628b1a5
   m_configObjects: {}

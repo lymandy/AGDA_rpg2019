@@ -34,4 +34,10 @@ public class GameStateMachine : MonoBehaviour
         SceneManager.LoadScene(5);
     }
 
+    public void QuitGame()
+    {
+        Debug.Log("QUIT!");
+        Application.Quit();
+    }
+
 }
