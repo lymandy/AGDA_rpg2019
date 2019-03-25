@@ -182,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: Tune
 --- !u!222 &99673397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -307,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34483126, y: 0.06784745}
   m_AnchorMax: {x: 0.6004711, y: 0.33353844}
-  m_AnchoredPosition: {x: -1.25, y: 2.6500092}
+  m_AnchoredPosition: {x: -1.25, y: 2.649994}
   m_SizeDelta: {x: -2.5, y: -0.20000076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &178685869
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 222378919}
   - component: {fileID: 222378918}
   m_Layer: 5
-  m_Name: 3
+  m_Name: Charm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '3
+  m_Text: 'Critize
 
 '
 --- !u!222 &340976222
@@ -862,9 +862,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '3
-
-'
+  m_Text: Charm
 --- !u!222 &444453428
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -909,7 +907,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34483126, y: 0.06784745}
   m_AnchorMax: {x: 0.6004711, y: 0.33353844}
-  m_AnchoredPosition: {x: -1.1690063, y: 2.6500092}
+  m_AnchoredPosition: {x: -1.1690063, y: 2.649994}
   m_SizeDelta: {x: -2.7, y: -0.20000076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499306103
@@ -1391,7 +1389,7 @@ GameObject:
   - component: {fileID: 599902861}
   - component: {fileID: 599902860}
   m_Layer: 5
-  m_Name: 3
+  m_Name: Critize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1949,7 +1947,7 @@ GameObject:
   - component: {fileID: 886815397}
   - component: {fileID: 886815396}
   m_Layer: 5
-  m_Name: 2
+  m_Name: Tune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2380,7 +2378,7 @@ GameObject:
   - component: {fileID: 1010508953}
   - component: {fileID: 1010508952}
   m_Layer: 5
-  m_Name: 2
+  m_Name: Tune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3398,9 +3396,9 @@ RectTransform:
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34483126, y: 0.06784745}
-  m_AnchorMax: {x: 0.6004711, y: 0.41042134}
-  m_AnchoredPosition: {x: -1.1400146, y: -8.969994}
-  m_SizeDelta: {x: -2.5, y: -24.96}
+  m_AnchorMax: {x: 0.6004711, y: 0.33353844}
+  m_AnchoredPosition: {x: -1.1400146, y: 3.024994}
+  m_SizeDelta: {x: -2.5, y: -0.9499998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162290777
 MonoBehaviour:
@@ -3644,6 +3642,7 @@ MonoBehaviour:
   enemy: {fileID: 1068073298}
   Damaged: 0
   Attackpower: 0
+  MPpool: 0
   Name: {fileID: 1397616034}
   HP: {fileID: 431053255}
   MP: {fileID: 544230234}
@@ -4017,7 +4016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34483126, y: 0.06784745}
   m_AnchorMax: {x: 0.6004711, y: 0.33353844}
-  m_AnchoredPosition: {x: -1.25, y: 2.6500092}
+  m_AnchoredPosition: {x: -1.25, y: 2.649994}
   m_SizeDelta: {x: -2.5, y: -0.20000076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1323347475
@@ -4412,7 +4411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.112, y: 0.06784745}
   m_AnchorMax: {x: 0.34483126, y: 0.33353844}
-  m_AnchoredPosition: {x: -0.1000061, y: 3}
+  m_AnchoredPosition: {x: -0.099975586, y: 3}
   m_SizeDelta: {x: 0.5, y: -0.8999996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1414075406
@@ -4773,7 +4772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34483126, y: 0.06784745}
   m_AnchorMax: {x: 0.6004711, y: 0.33353844}
-  m_AnchoredPosition: {x: -1.25, y: 2.6500092}
+  m_AnchoredPosition: {x: -1.25, y: 2.649994}
   m_SizeDelta: {x: -2.5, y: -0.20000076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1726746194
@@ -5475,7 +5474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: Tune
 --- !u!222 &1923522582
 CanvasRenderer:
   m_ObjectHideFlags: 0

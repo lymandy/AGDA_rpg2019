@@ -9,13 +9,24 @@ public class GameStateMachine : MonoBehaviour
     public void BackToMainMenu()
     {
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 
     public void FirstLevel()
     {
         SceneManager.LoadScene(3);
     }
+
+    public void OptionMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 
     public void BackToLevelSelect()
     {
