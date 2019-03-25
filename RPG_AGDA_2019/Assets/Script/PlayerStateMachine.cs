@@ -15,6 +15,11 @@ public class PlayerStateMachine : MonoBehaviour
     public Text HP;
     public Text MP;
     public bool selected;
+    public bool isDefending;
+    public bool buffed;
+    public float echoDmg;
+    public bool echo;
+    public float buffMod;
     public List<GameObject> menu;
 
 
@@ -32,6 +37,15 @@ public class PlayerStateMachine : MonoBehaviour
     	DEF,
     	WHISTLE,
     	SING,
+    	WINDPLAY,
+    	WINDTUNE,
+    	CHARM,
+    	STRINGPLAY,
+    	STRINGTUNE,
+    	CRITICIZE,
+    	DRUMPLAY,
+    	FORTISSISSIMO,
+    	ECHO,
     }
 
     public TurnState currentstate;
@@ -55,6 +69,11 @@ public class PlayerStateMachine : MonoBehaviour
         player.baseDEF = 1;
         player.currDEF = player.baseDEF;
         selected = false;
+        isDefending = false;
+        buffed = false;
+        buffMod = 1.5f;
+        echoDmg = 0.0f;
+        echo = false;
         //hello world
         currentstate = TurnState.SELECTING;
         anim = GetComponent<Animator>();
@@ -93,6 +112,25 @@ public class PlayerStateMachine : MonoBehaviour
                 {
                     player.CurrHealth = player.BaseHealth;
                 }
+                //Apply buff
+                if (buffed) {
+                	if (Attackpower % 2 == 0) {
+                		Attackpower = Attackpower * buffMod;
+                	} else {
+                		Attackpower = Attackpower * buffMod;
+                		Attackpower += (buffMod - 1);
+                	}
+                	if (Attackpower > 0) {
+                		buffed = false;
+                	}
+                }
+
+                if (echo != true && echoDmg > 0) {
+                	enemy.enemy._CurrHealth -= echoDmg;
+                	echoDmg = 0.0f;
+                } else if (echo == true) {
+                	echo = false;
+                }
 
                 //update enemy health
                 enemy.enemy._CurrHealth -= Attackpower;
@@ -129,10 +167,6 @@ public class PlayerStateMachine : MonoBehaviour
 
 
         }
-    }
-
-    public void setBusy(bool b) {
-    	isBusy = b;
     }
 
     //Depending on weapon type, different action menu will appear
@@ -208,6 +242,33 @@ public class PlayerStateMachine : MonoBehaviour
     			case (AnimState.SING):
     				anim.Play("PlayerSing");
     				break;
+    			case (AnimState.WINDPLAY):
+    				anim.Play("PlayerWindPlay");
+    				break;
+    			case (AnimState.WINDTUNE):
+    				anim.Play("PlayerWindTune");
+    				break;
+    			case (AnimState.CHARM):
+    				anim.Play("PlayerCharm");
+    				break;
+    			case (AnimState.STRINGPLAY):
+    				anim.Play("PlayerStringPlay");
+    				break;
+    			case (AnimState.STRINGTUNE):
+    				anim.Play("PlayerStringTune");
+    				break;
+    			case (AnimState.CRITICIZE):
+    				anim.Play("PlayerCriticize");
+    				break;
+    			case (AnimState.DRUMPLAY):
+    				anim.Play("PlayerDrumPlay");
+    				break;
+    			case (AnimState.FORTISSISSIMO):
+    				anim.Play("PlayerFortississimo");
+    				break;
+    			case (AnimState.ECHO):
+    				anim.Play("PlayerEcho");
+    				break;
     		}
     	}
     }
@@ -247,18 +308,20 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Attackpower = Random.Range(1, 1);
             selected = true;
+            handleAnim(AnimState.WINDPLAY);
         }
-        // attack with a heavy attack
+        // heal
         else if (button.name == "Tune")
         {
             if (player.CurrMusicPoints - 2.0 >= 0.0)
             {
                 player.CurrMusicPoints = player.CurrMusicPoints - 2.0f;
                 Damaged = -Random.Range(2, 3);
-
                 selected = true;
+                handleAnim(AnimState.WINDTUNE);
             }
         }
+        // steal enemy mp
         else if (button.name == "Charm")
         {
             
@@ -267,10 +330,12 @@ public class PlayerStateMachine : MonoBehaviour
             if (enemyMP >= 0)
             {
                 selected = true;
+                handleAnim(AnimState.CHARM);
             }else if (enemy.enemy._CurrMusicPoints > 0 && MPpool >= -3)
             {
                 MPpool = enemy.enemy._CurrMusicPoints;
                 selected = true;
+                handleAnim(AnimState.CHARM);
             }else{
                 MPpool = 0;
                 selected = false;
@@ -289,30 +354,54 @@ public class PlayerStateMachine : MonoBehaviour
         {
             if (player.CurrMusicPoints - 3.0 >= 0.0)
             {
-                player.CurrMusicPoints = player.CurrMusicPoints - .0f;
+                player.CurrMusicPoints = player.CurrMusicPoints - 3.0f;
                 Attackpower = Random.Range(2, 4);
                 selected = true;
+                handleAnim(AnimState.STRINGPLAY);
             }
             else
             {
                 selected = false;
             }
         }
-        // attack with a heavy attack
+        // buff your next attack
         else if (button.name == "Tune")
         {
-            selected = true;
+        	if (player.CurrMusicPoints - 3.0 >= 0.0)
+            {
+                player.CurrMusicPoints = player.CurrMusicPoints - 3.0f;
+                buffed = true;
+        		Attackpower = 0;
+            	selected = true;
+            	handleAnim(AnimState.STRINGTUNE);
+            }
+            else
+            {
+                selected = false;
+            }
         }
+        // give the enemy a miss chance on their next attack
         else if (button.name == "Critize")
         {
-            selected = true;
+        	if (player.CurrMusicPoints - 1.0 >= 0.0)
+            {
+                player.CurrMusicPoints = player.CurrMusicPoints - 1.0f;
+                enemy.debuffed = true;
+        		Attackpower = 0;
+            	selected = true;
+            	handleAnim(AnimState.CRITICIZE);
+            }
+            else
+            {
+                selected = false;
+            }
         }
     }
 
     //Action for Percussions
     void PercussionAction(Button button)
     {
-        // attack with a light attack 
+        // attack with a very heavy attack 
         if (button.name == "Play")
         {
             if (player.CurrMusicPoints - 5.0 >= 0.0)
@@ -320,21 +409,45 @@ public class PlayerStateMachine : MonoBehaviour
                 player.CurrMusicPoints = player.CurrMusicPoints - 5.0f;
                 Attackpower = Random.Range(5, 8);
                 selected = true;
+                handleAnim(AnimState.DRUMPLAY);
             }
             else
             {
                 selected = false;
             }
         }
-        // attack with a heavy attack
-        else if (button.name == "2")
+        // attack with a chance to stagger
+        else if (button.name == "Fortississimo")
         {
-            selected = true;
+        	if (player.CurrMusicPoints - 3.0 >= 0.0)
+            {
+                player.CurrMusicPoints = player.CurrMusicPoints - 3.0f;
+                enemy.debuffed = true;
+                Attackpower = Random.Range(2,3);
+            	selected = true;
+            	handleAnim(AnimState.FORTISSISSIMO);
+            }
+        	else
+        	{
+        		selected = false;
+        	}
         }
-        else if (button.name == "3")
+        // hit the enemy with an attack that echoes and does damage again next turn
+        else if (button.name == "Echo")
         {
-
-            selected = true;
+        	if (player.CurrMusicPoints - 1.0 >= 0.0)
+            {
+                player.CurrMusicPoints = player.CurrMusicPoints - 1.0f;
+                Attackpower = Random.Range(1,2);
+                echoDmg = Attackpower;
+                echo = true;
+            	selected = true;
+            	handleAnim(AnimState.ECHO);
+            }
+        	else
+        	{
+        		selected = false;
+        	}
         }
     }
 
@@ -345,6 +458,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Attackpower = 0;
             selected = true;
+            isDefending = true;
             handleAnim(AnimState.DEF);
         }
         else

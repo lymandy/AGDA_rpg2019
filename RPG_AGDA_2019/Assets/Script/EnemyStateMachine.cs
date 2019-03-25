@@ -9,6 +9,7 @@ public class EnemyStateMachine : MonoBehaviour
     public PlayerStateMachine player;
     public float Damage;
     public float Attackpower;
+    public bool debuffed;
     public Text Name;
     public Text HP;
     private Animator anim;
@@ -44,6 +45,7 @@ public class EnemyStateMachine : MonoBehaviour
         Attackpower = 0.0f;
         SetEnemyType();
         anim = GetComponent<Animator>();
+        debuffed = false;
     }
 
     // Update is called once per frame
@@ -67,6 +69,17 @@ public class EnemyStateMachine : MonoBehaviour
                 }
                 break;
             case (TurnState.ACTION):
+                if (player.isDefending) {
+                    Attackpower -= 2;
+                    player.isDefending = false;
+                }
+                if (debuffed) {
+                    int test = Random.Range(0,1);
+                    Attackpower = Attackpower - (test * 10000);
+                    debuffed = false;
+                }
+                if (Attackpower < 0) Attackpower = 0;
+
                 
                 player.player.CurrHealth = player.player.CurrHealth - Attackpower;
                 if (player.player.CurrHealth < 0)

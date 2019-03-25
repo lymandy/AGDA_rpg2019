@@ -1737,7 +1737,7 @@ GameObject:
   - component: {fileID: 687199654}
   - component: {fileID: 687199653}
   m_Layer: 5
-  m_Name: 2
+  m_Name: Fortississimo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2249,7 +2249,7 @@ GameObject:
   - component: {fileID: 967752041}
   - component: {fileID: 967752040}
   m_Layer: 5
-  m_Name: 3
+  m_Name: Echo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2812,6 +2812,7 @@ MonoBehaviour:
   player: {fileID: 1259035935}
   Damage: 0
   Attackpower: 0
+  debuffed: 0
   Name: {fileID: 1076408059}
   HP: {fileID: 1849353455}
   currentstate: 0
@@ -3647,6 +3648,9 @@ MonoBehaviour:
   HP: {fileID: 431053255}
   MP: {fileID: 544230234}
   selected: 0
+  isDefending: 0
+  buffed: 0
+  buffMod: 0
   menu:
   - {fileID: 499306101}
   - {fileID: 1323347473}
@@ -3654,6 +3658,7 @@ MonoBehaviour:
   - {fileID: 1726746192}
   currentstate: 0
   isBusy: 0
+  anim: {fileID: 0}
 --- !u!61 &1259035936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4205,7 +4210,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: Fortississimo
 --- !u!222 &1356264146
 CanvasRenderer:
   m_ObjectHideFlags: 0
