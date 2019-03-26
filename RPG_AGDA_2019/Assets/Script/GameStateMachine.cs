@@ -34,6 +34,11 @@ public class GameStateMachine : MonoBehaviour
         SceneManager.LoadScene(5);
     }
 
+    public void ToFirstCutScene()
+    {
+        SceneManager.LoadScene(6);
+    }
+
     public void QuitGame()
     {
         Debug.Log("QUIT!");
