@@ -3650,6 +3650,8 @@ MonoBehaviour:
   selected: 0
   isDefending: 0
   buffed: 0
+  echoDmg: 0
+  echo: 0
   buffMod: 0
   menu:
   - {fileID: 499306101}
@@ -4289,7 +4291,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '3
+  m_Text: 'Echo
 
 '
 --- !u!222 &1366354899
