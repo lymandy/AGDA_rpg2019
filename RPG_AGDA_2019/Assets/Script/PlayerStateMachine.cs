@@ -22,6 +22,11 @@ public class PlayerStateMachine : MonoBehaviour
     public float buffMod;
     public List<GameObject> menu;
 
+    public AudioClip sound;
+    private Button _button { get { return GetComponent<Button>(); } }
+    private AudioSource source { get { return GetComponent<AudioSource>(); } }
+
+
 
     public enum TurnState
     {
@@ -56,7 +61,7 @@ public class PlayerStateMachine : MonoBehaviour
     void Start()
     {
         //if we are adding level ups then this will need to change this
-        player.name = "NO NAME!!!";
+        player.name = "Conductor";
         Name.text = player.name;
         player.BaseHealth = 20;
         player.CurrHealth = player.BaseHealth;
@@ -77,6 +82,11 @@ public class PlayerStateMachine : MonoBehaviour
         //hello world
         currentstate = TurnState.SELECTING;
         anim = GetComponent<Animator>();
+
+        gameObject.AddComponent<AudioSource>();
+        source.clip = sound;
+        source.playOnAwake = false;
+       _button.onClick.AddListener(() => ChooseAction(_button));
 
     }
 
@@ -193,6 +203,7 @@ public class PlayerStateMachine : MonoBehaviour
     //Close all action menus 
     public void CloseActionMenu()
     {
+        PlaySound();
         for (int i = 0; i < menu.Count; i++)
         {
             if (menu[i].activeInHierarchy == true)
@@ -223,6 +234,7 @@ public class PlayerStateMachine : MonoBehaviour
         }
         if (selected)
         {
+            PlaySound();
             CloseActionMenu();
         }
     }
@@ -304,14 +316,14 @@ public class PlayerStateMachine : MonoBehaviour
     void WindAction(Button button)
     {
         // attack with a light attack 
-        if (button.name == "Play")
+        if (button.name == "WPlay")
         {
             Attackpower = Random.Range(1, 1);
             selected = true;
             handleAnim(AnimState.WINDPLAY);
         }
         // heal
-        else if (button.name == "Tune")
+        else if (button.name == "Repair")
         {
             if (player.CurrMusicPoints - 2.0 >= 0.0)
             {
@@ -350,7 +362,7 @@ public class PlayerStateMachine : MonoBehaviour
     void StringAction(Button button)
     {
         // attack with a light attack 
-        if (button.name == "Play")
+        if (button.name == "SPlay")
         {
             if (player.CurrMusicPoints - 3.0 >= 0.0)
             {
@@ -365,7 +377,7 @@ public class PlayerStateMachine : MonoBehaviour
             }
         }
         // buff your next attack
-        else if (button.name == "Tune")
+        else if (button.name == "STune")
         {
         	if (player.CurrMusicPoints - 3.0 >= 0.0)
             {
@@ -381,7 +393,7 @@ public class PlayerStateMachine : MonoBehaviour
             }
         }
         // give the enemy a miss chance on their next attack
-        else if (button.name == "Critize")
+        else if (button.name == "Criticize")
         {
         	if (player.CurrMusicPoints - 1.0 >= 0.0)
             {
@@ -402,7 +414,7 @@ public class PlayerStateMachine : MonoBehaviour
     void PercussionAction(Button button)
     {
         // attack with a very heavy attack 
-        if (button.name == "Play")
+        if (button.name == "PPlay")
         {
             if (player.CurrMusicPoints - 5.0 >= 0.0)
             {
@@ -465,6 +477,15 @@ public class PlayerStateMachine : MonoBehaviour
         {
             selected = false;
         }
+    }
+
+    void PlaySound()
+    {
+        if (sound != null)
+        { 
+            source.PlayOneShot(sound);
+        }
+
     }
 }
 

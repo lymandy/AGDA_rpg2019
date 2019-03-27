@@ -9,8 +9,10 @@ public class Equipment : MonoBehaviour
     public Text E1text;
     public Text E2text;
     public Text E3text;
-	//udepending on what weapon the player is using
-	public void SetEquip () {
+
+ 
+        //udepending on what weapon the player is using
+        public void SetEquip () {
         switch (playermachine.player.weapontype)
         {
             case Player.WeaponType.UNARMED:
@@ -76,5 +78,5 @@ public class Equipment : MonoBehaviour
             playermachine.player.weapontype = Player.WeaponType.UNARMED;
         }
     }
-
+   
 }

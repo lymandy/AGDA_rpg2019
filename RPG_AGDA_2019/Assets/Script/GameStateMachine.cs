@@ -45,4 +45,11 @@ public class GameStateMachine : MonoBehaviour
         Application.Quit();
     }
 
+    public void Button()
+    {
+
+        SceneManager.LoadScene(7);
+        Debug.Log("QUIT!");
+    }
+
 }
